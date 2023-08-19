@@ -1,210 +1,69 @@
-# Created by https://www.toptal.com/developers/gitignore/api/macos,python,vscode
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,python,vscode
+# PyMacChanger
 
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
+![GitHub stars](https://img.shields.io/github/stars/Yokoo-arch/PyMacChanger?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Yokoo-arch/PyMacChanger?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Yokoo-arch/PyMacChanger)
+![GitHub license](https://img.shields.io/github/license/Yokoo-arch/PyMacChanger)
 
-# Icon must end with two \r
-Icon
+PyMacChanger is a Python script for changing the MAC address of a network interface on macOS. It provides several modes for changing the MAC address, including randomization and manual specification.
 
-# Thumbnails
-._*
+## Features
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+- Change the MAC address of a network interface.
+- Randomize the MAC address.
+- Specify a manual MAC address.
+- Revert to the original MAC address.
+- Copy the generated MAC address to the clipboard.
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+## Prerequisites
 
-### macOS Patch ###
-# iCloud generated files
-*.icloud
+- macOS (tested on macOS Ventura: Version 13.5)
+- Python 3.x
 
-### Python ###
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+## Installation
 
-# C extensions
-*.so
+1. Clone the repository:
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+   ```shell
+   git clone https://github.com/Yokoo-arch/PyMacChanger.git
+   cd PyMacChanger
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+2. Install the required Python packages:
+    ```shell
+    pip install -r requirements.txt
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+## Usage
+Run the script with the desired options:
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+```shell
+python main.py -i <interface> -r
+```
+```
+`-i`, `--interface`: Name of the interface (required).
+`-r`, `--random`: Change the MAC address to a random one.
+`-m`, `--manual`: Change the MAC address to a specified one.
+`-ma`, `--mac-address`: MAC address used for manual mode.
+`-p`, `--permanent-mac-address`: Revert to the original MAC address.
+`-g`, `--generate-random-mac`: Generate and copy a random MAC address to the clipboard.
+```
+## Examples
+Change the MAC address of Wi-Fi (en0) to a random one:
+```shell
+python main.py -i en0 -r
+````
 
-# Translations
-*.mo
-*.pot
+Change the MAC address of Ethernet (en1) to a manual one:
+```shell
+python main.py -i en1 -m -ma 12:34:56:78:90:ab
+```
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+Revert the MAC address of Wi-Fi (en0) to the permanent one:
+```shell
+python main.py -i en0 -p
+```
 
-# Flask stuff:
-instance/
-.webassets-cache
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request.
 
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-.pybuilder/
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/#use-with-ide
-.pdm.toml
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
-
-### Python Patch ###
-# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
-poetry.toml
-
-# ruff
-.ruff_cache/
-
-# LSP config files
-pyrightconfig.json
-
-#!! ERROR: vscode is undefined. Use list command to see defined gitignore types !!#
-
-# End of https://www.toptal.com/developers/gitignore/api/macos,python,vscode
+## License
+This project is licensed under the MIT License - see the **LICENSE** file for details.
