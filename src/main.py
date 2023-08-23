@@ -156,7 +156,7 @@ if __name__ == "__main__":
     # Get the arguments from the CLI
     parser, options = get_arguments()
 
-    print("[* Welcome to PyMacChanger by Yokoo-arch (add link to github) *]")
+    print("[* Welcome to PyMacChanger by Yokoo-arch (https://github.com/Yokoo-arch/PyMacChanger) *]")
     print("[*] This script will change your MAC address and requires administrative privileges")
     print("[*] Beware that this script will disconnect you from internet during the process. Your internet connection should reconnect itself automatically.")
     print("[*] At some point you will be prompter to enter your sudo password")
